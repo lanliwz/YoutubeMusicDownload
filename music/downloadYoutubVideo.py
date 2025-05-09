@@ -19,6 +19,6 @@ ydl_opts = {
 # https://www.youtube.com/watch?v=w7vJOT6vqHQ
 # https://www.youtube.com/watch?v=LIEtwVhqlkk
 #############################################
-url = 'https://music.youtube.com/watch?v=LNFuroF-evk&list=PLhrZMOVonpjVQBcLfWWNg_4pq_Nc4Cf2t'
+url = 'https://www.youtube.com/watch?v=6wr1Uaylbv8&list=RD6wr1Uaylbv8&start_radio=1'
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.download([url])
