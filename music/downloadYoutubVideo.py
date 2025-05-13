@@ -1,13 +1,20 @@
 import yt_dlp
 
 
+import os
+
+# Ensure the output directory exists
+output_dir = "/Users/weizhang/karaoke/youtube-download"
+os.makedirs(output_dir, exist_ok=True)
+
 ydl_opts = {
     'format': 'bestaudio/best',
+    'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
         'preferredcodec': 'mp3',
         'preferredquality': '320',
-    }],
+    }]
 }
 # Waltz Music
 # https://www.youtube.com/watch?v=YoRTOkQWe7c
@@ -19,6 +26,6 @@ ydl_opts = {
 # https://www.youtube.com/watch?v=w7vJOT6vqHQ
 # https://www.youtube.com/watch?v=LIEtwVhqlkk
 #############################################
-url = 'https://www.youtube.com/watch?v=6wr1Uaylbv8&list=RD6wr1Uaylbv8&start_radio=1'
+url = 'https://www.youtube.com/watch?v=Bwca-g2qHCs'
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.download([url])
