@@ -8,6 +8,8 @@ output_dir = "/Users/weizhang/karaoke/youtube-download"
 os.makedirs(output_dir, exist_ok=True)
 
 ydl_opts = {
+    'noplaylist': True,
+    'js_runtimes': {'node': {'path': '/opt/homebrew/bin/node'}},
     'format': 'bestaudio/best',
     'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
     'postprocessors': [{
@@ -26,6 +28,6 @@ ydl_opts = {
 # https://www.youtube.com/watch?v=w7vJOT6vqHQ
 # https://www.youtube.com/watch?v=LIEtwVhqlkk
 #############################################
-url = 'https://www.youtube.com/watch?v=pIXfREtChbc'
+url = 'https://www.youtube.com/watch?v=ACG8aJHcZ_M'
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.download([url])
