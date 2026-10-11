@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+.venv*/
+venv/
+__pycache__/
+*.pyc
+*.mp3
+*.wav
+*.webm
+*.mp4
+*.part

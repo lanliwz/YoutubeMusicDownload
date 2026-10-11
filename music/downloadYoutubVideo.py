@@ -1,33 +1,20 @@
-import yt_dlp
+"""Download one YouTube video as MP3, optionally passing a URL on the CLI."""
+import argparse
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from music.downloader import download_audio
 
 
-import os
+def main():
+    parser = argparse.ArgumentParser(description='Download a single YouTube video as MP3')
+    parser.add_argument('url', nargs='?', default='https://www.youtube.com/watch?v=ACG8aJHcZ_M')
+    parser.add_argument('--quality', choices=('128', '192', '320'), default='320')
+    args = parser.parse_args()
+    result = download_audio(args.url, args.quality)
+    print(f"Saved: {result['path']}")
 
-# Ensure the output directory exists
-output_dir = "/Users/weizhang/karaoke/youtube-download"
-os.makedirs(output_dir, exist_ok=True)
 
-ydl_opts = {
-    'noplaylist': True,
-    'js_runtimes': {'node': {'path': '/opt/homebrew/bin/node'}},
-    'format': 'bestaudio/best',
-    'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
-    'postprocessors': [{
-        'key': 'FFmpegExtractAudio',
-        'preferredcodec': 'mp3',
-        'preferredquality': '320',
-    }]
-}
-# Waltz Music
-# https://www.youtube.com/watch?v=YoRTOkQWe7c
-# https://www.youtube.com/watch?v=pSyefchC84w
-# https://www.youtube.com/watch?v=luQmhN5Zfvk
-# https://www.youtube.com/watch?v=Tg7N7ewWlxM
-# https://www.youtube.com/watch?v=24eNBufKuBg
-# https://www.youtube.com/watch?v=OvMdVvop_cY
-# https://www.youtube.com/watch?v=w7vJOT6vqHQ
-# https://www.youtube.com/watch?v=LIEtwVhqlkk
-#############################################
-url = 'https://www.youtube.com/watch?v=ACG8aJHcZ_M'
-with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([url])
+if __name__ == '__main__':
+    main()

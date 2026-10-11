@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f5f3ed"><title>Audio Studio · Your listening space</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/" aria-label="Audio Studio home"><span class="brand-icon">≋</span><span>audio<span class="brand-light">studio</span><small>YOUR LOCAL LISTENING SPACE</small></span></a>
+  <nav aria-label="Main navigation"><a class="nav-item selected" href="#create"><span>↙</span> Create audio</a><a class="nav-item" href="#library"><span>▤</span> Your library <span id="nav-count" class="count">0</span></a></nav>
+  <div class="sidebar-note"><span class="tiny-label">A LITTLE LESS FRICTION</span><p>From a link to your next listen.</p><div class="mini-wave" aria-hidden="true">▂ ▅ ▃ ▇ ▄ ▆ ▂ ▅ ▃</div></div>
+  <div class="local-status"><span class="dot"></span> Running on your computer<small>Your files stay in your local library.</small></div>
+</aside>
+<main>
+  <header class="topbar"><span>WORKSPACE <span class="slash">/</span> Create audio</span><span class="local-pill">LOCAL STUDIO</span></header>
+  <section id="create" class="intro"><div><div class="eyebrow">MAKE ROOM FOR GOOD SOUND</div><h1>Your next listen<br>starts with a link<span>.</span></h1><p>Turn a YouTube video into an MP3.<br>Keep it here. Play it anytime.</p></div><div class="record-art" aria-hidden="true"><div class="record"><div class="record-label"><span>AS</span><i></i><small>SIDE A · YOUR SOUND</small></div></div><div class="record-caption">A good link. A great listen.</div></div></section>
+  <section class="download-card" aria-labelledby="download-heading"><div class="section-heading"><h2 id="download-heading">Bring something to the studio</h2><span class="format-label">MP3 AUDIO</span></div>
+    <form id="download-form"><label for="url">YouTube video link</label><div class="url-field"><span aria-hidden="true">↗</span><input id="url" name="url" type="url" placeholder="https://www.youtube.com/watch?v=…" required autocomplete="off" spellcheck="false"><button id="paste" type="button">Paste</button></div>
+      <div class="form-bottom"><div class="quality-field"><label for="quality">Audio quality</label><select id="quality"><option value="320">320 kbps · High</option><option value="192">192 kbps · Balanced</option><option value="128">128 kbps · Smaller file</option></select></div><button id="submit" class="primary" type="submit">Create MP3 <span aria-hidden="true">↗</span></button></div>
+      <p class="form-note"><span aria-hidden="true">◎</span> One video at a time. Playlist links download only the selected video.</p><p id="form-message" role="status" aria-live="polite" hidden></p>
+    </form>
+  </section>
+  <section id="queue-section" class="queue-section" hidden><div class="section-heading"><h2>Studio activity</h2><span id="queue-count" class="muted"></span></div><div id="jobs" aria-live="polite"></div></section>
+  <section id="library" class="library-section"><div class="library-heading"><div><div class="eyebrow">COLLECTED & READY TO PLAY</div><h2>Your audio library <span id="library-count">0</span></h2></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search your audio" aria-label="Search your audio"></label></div><div id="library-list"></div></section>
+  <footer><span>Made for your everyday listening.</span><details><summary>Studio setup</summary><p id="setup"></p></details></footer>
+</main>
+<div id="player" class="player" hidden><div class="player-cover" aria-hidden="true">♫</div><div class="player-title"><small>NOW PLAYING</small><strong id="playing-title"></strong></div><audio id="audio" controls preload="metadata"></audio><button id="close-player" type="button" aria-label="Close player">×</button></div>
+</body></html>
